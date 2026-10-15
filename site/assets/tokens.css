@@ -1,0 +1,129 @@
+/* Hallmark · route: custom (tuned) · vibe: "和紙、墨、朱印、金茶、枯山水"
+ * 晝：生成り（paper）× 墨（ink）× 朱（accent）× 苔（grade A）× 金茶（gold）
+ * 夜：鉄紺（paper）× 胡粉（ink）× 朱（accent）× 金茶（gold）
+ * display: Noto Serif TC · body: Noto Sans TC · mood（只用在首頁意境語句）: 辰宇落雁體子集
+ * axes: light / roman-serif / warm（夜：dark / roman-serif / warm）
+ */
+:root {
+  color-scheme: light dark;
+
+  --color-paper: oklch(96.4% 0.013 86);
+  --color-paper-2: oklch(93.8% 0.018 84);
+  --color-paper-3: oklch(90.2% 0.024 82);
+  --color-card: oklch(98.2% 0.009 88);
+  --color-ink: oklch(23% 0.012 62);
+  --color-ink-2: oklch(37% 0.014 62);
+  --color-muted: oklch(53% 0.014 70);
+  --color-rule: oklch(84% 0.018 80);
+  --color-rule-2: oklch(89% 0.015 82);
+  --color-accent: oklch(55% 0.165 32);
+  --color-accent-soft: oklch(92% 0.04 40);
+  --color-accent-ink: oklch(97% 0.01 86);
+  --color-gold: oklch(66% 0.09 78);
+  --color-gold-ink: oklch(48% 0.085 74);  /* 金茶色的文字版：小字也有 4.5:1 */
+  --color-frame: oklch(100% 0 0 / 0.5);
+  --color-scrim: oklch(25% 0.02 60 / 0.45);
+  --color-focus: oklch(55% 0.19 32);
+  --color-grade-a: oklch(48% 0.075 140);
+  --color-grade-b: oklch(56% 0.1 72);
+  --color-grade-c: oklch(52% 0.018 70);
+  --color-shade: oklch(25% 0.02 60 / 0.1);
+  --color-stone-hi: oklch(82% 0.012 75);
+  --color-stone: oklch(46% 0.014 62);
+  --color-stone-lo: oklch(24% 0.012 60);
+  --grain-opacity: 0.22;
+
+  --font-display: "Noto Serif TC", "Songti TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mood: "HLTB Mood", "Noto Serif TC", serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9rem;
+  --text-base: 1.0625rem;
+  --text-md: 1.1875rem;
+  --text-lg: 1.375rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-2xl: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+  --text-display: clamp(2.5rem, 1.6rem + 4.2vw, 4.75rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 7rem;
+  --page-gutter: clamp(1rem, 0.4rem + 3vw, 3rem);
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --rule: 1px solid var(--color-rule);
+  --rule-soft: 1px solid var(--color-rule-2);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 520ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: oklch(20% 0.028 258);
+    --color-paper-2: oklch(23.5% 0.03 258);
+    --color-paper-3: oklch(28% 0.032 258);
+    --color-card: oklch(23% 0.03 258);
+    --color-ink: oklch(93% 0.014 86);
+    --color-ink-2: oklch(83% 0.016 84);
+    --color-muted: oklch(68% 0.022 250);
+    --color-rule: oklch(36% 0.03 255);
+    --color-rule-2: oklch(30% 0.03 256);
+    --color-accent: oklch(70% 0.14 38);
+    --color-accent-soft: oklch(32% 0.06 35);
+    --color-accent-ink: oklch(20% 0.028 258);
+    --color-gold: oklch(78% 0.09 82);
+    --color-gold-ink: oklch(78% 0.09 82);
+    --color-frame: oklch(93% 0.014 86 / 0.25);
+    --color-scrim: oklch(5% 0.02 258 / 0.65);
+    --color-focus: oklch(76% 0.15 40);
+    --color-grade-a: oklch(77% 0.08 145);
+    --color-grade-b: oklch(81% 0.1 82);
+    --color-grade-c: oklch(72% 0.02 250);
+    --color-shade: oklch(5% 0.02 258 / 0.45);
+    --color-stone-hi: oklch(64% 0.025 250);
+    --color-stone: oklch(37% 0.03 255);
+    --color-stone-lo: oklch(13% 0.02 258);
+    --grain-opacity: 0.12;
+  }
+}
+:root[data-theme="dark"] {
+  --color-paper: oklch(20% 0.028 258);
+  --color-paper-2: oklch(23.5% 0.03 258);
+  --color-paper-3: oklch(28% 0.032 258);
+  --color-card: oklch(23% 0.03 258);
+  --color-ink: oklch(93% 0.014 86);
+  --color-ink-2: oklch(83% 0.016 84);
+  --color-muted: oklch(68% 0.022 250);
+  --color-rule: oklch(36% 0.03 255);
+  --color-rule-2: oklch(30% 0.03 256);
+  --color-accent: oklch(70% 0.14 38);
+  --color-accent-soft: oklch(32% 0.06 35);
+  --color-accent-ink: oklch(20% 0.028 258);
+  --color-gold: oklch(78% 0.09 82);
+  --color-gold-ink: oklch(78% 0.09 82);
+  --color-frame: oklch(93% 0.014 86 / 0.25);
+  --color-scrim: oklch(5% 0.02 258 / 0.65);
+  --color-focus: oklch(76% 0.15 40);
+  --color-grade-a: oklch(77% 0.08 145);
+  --color-grade-b: oklch(81% 0.1 82);
+  --color-grade-c: oklch(72% 0.02 250);
+  --color-shade: oklch(5% 0.02 258 / 0.45);
+  --color-stone-hi: oklch(64% 0.025 250);
+  --color-stone: oklch(37% 0.03 255);
+  --color-stone-lo: oklch(13% 0.02 258);
+  --grain-opacity: 0.12;
+}

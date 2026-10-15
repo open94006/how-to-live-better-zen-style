@@ -1,0 +1,14 @@
+{
+  "name": "how-to-live-better",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node tools/extract.mjs",
+    "build": "node build.mjs",
+    "check": "node tools/check.mjs",
+    "font": "python3 tools/subset_font.py"
+  },
+  "devDependencies": {
+    "opencc-js": "^1.4.2"
+  }
+}

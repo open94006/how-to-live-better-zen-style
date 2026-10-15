@@ -1,0 +1,188 @@
+{
+ "home": {
+  "id": "e314ec92-06d9-4ed1-9324-31a1af6aa73f",
+  "q": "home#2",
+  "alt": "灑著陽光的桌面上，一本攤開的書、一杯咖啡和一疊舊書"
+ },
+ "dawn": {
+  "id": "905c219b-c69a-48f9-9eca-162e365db7f5",
+  "q": "road-night#2",
+  "alt": "清晨的湖面升起薄霧，遠方的樹林剪影映在水裡"
+ },
+ "helmet": {
+  "id": "57aff0d5-ee97-40b1-82a5-10575f8365da",
+  "q": "helmet#4",
+  "alt": "幾頂安全帽掛在紅磚牆的掛鉤上"
+ },
+ "stove": {
+  "id": "db6a6cf5-a6b8-4cc9-b2a9-1793e52fafc6",
+  "q": "kitchen#2",
+  "alt": "黑暗中爐火燃著一圈藍色的火焰"
+ },
+ "elder-hand": {
+  "id": "500b75d2-6ea6-4e84-ba66-d305e7202601",
+  "q": "grandparent#5",
+  "alt": "長輩布滿皺紋的手，輕輕拿著一朵小白花"
+ },
+ "vaccine": {
+  "id": "7c5d9c99-60e4-4af5-9f7e-51c53ba119b6",
+  "q": "vaccine#0",
+  "alt": "戴著手套的手正從小藥瓶抽取疫苗"
+ },
+ "blood-pressure": {
+  "id": "6efcbc80-6bf5-444e-91d3-7a91562fbed6",
+  "q": "clinic#12",
+  "alt": "手臂綁著血壓計袖帶，正在桌上量血壓"
+ },
+ "holding-hands": {
+  "id": "253b9b30-e3f5-4894-960f-c6211de3e26b",
+  "q": "couple-hands#3",
+  "alt": "兩個人在草地上牽著手"
+ },
+ "window": {
+  "id": "cca1b2b8-d1d6-4f5b-91bc-0622cfd322b8",
+  "q": "window-light#9",
+  "alt": "昏暗的房間裡，光線穿過窗簾照在窗邊的植物上"
+ },
+ "walk-path": {
+  "id": "a0856f68-ba02-47cb-b001-81e6bdbe9884",
+  "q": "walk-path#0",
+  "alt": "一條木棧道穿過草原，遠方雪山下有人慢慢走著"
+ },
+ "ashtray": {
+  "id": "80d07596-a537-4192-afc8-8799aaffb5bc",
+  "q": "ashtray#8",
+  "alt": "黑白照片裡，菸盒和放著香菸的菸灰缸"
+ },
+ "sugar": {
+  "id": "8867ea18-25f9-4e5b-abf1-82194aef7a8d",
+  "q": "sugar#2",
+  "alt": "透明杯子裡堆滿方糖"
+ },
+ "vegetables": {
+  "id": "5fe44c6b-243d-4b9d-a3c8-6112bf56341f",
+  "q": "vegetables#0",
+  "alt": "一籃剛採收的紅皮地瓜"
+ },
+ "badminton": {
+  "id": "4687f221-9d67-4320-9991-e83f18720a01",
+  "q": "badminton#3",
+  "alt": "體育館的綠色球場上，幾個人在打羽球"
+ },
+ "bed": {
+  "id": "38f6318d-940e-4980-9b56-0e3f6c2410f8",
+  "q": "bed#9",
+  "alt": "黑白照片裡，一個人抱著枕頭安穩地睡著"
+ },
+ "wok": {
+  "id": "017bb16f-7e16-4b80-a207-e57744f60299",
+  "q": "wok#7",
+  "alt": "有人拿著鍋鏟在大炒鍋裡拌炒青菜和麵條"
+ },
+ "toothbrush": {
+  "id": "b61e9384-1b65-47fd-ba62-df2cfc7afa07",
+  "q": "toothbrush#0",
+  "alt": "暖色背景前的一支藍色牙刷"
+ },
+ "desk-calm": {
+  "id": "6f60f253-d1ee-485e-9b21-16a6ec2bb6ca",
+  "q": "desk-calm#4",
+  "alt": "窗邊書桌上，一疊書和一盆綠色植物"
+ },
+ "notebook": {
+  "id": "283c7e94-8e1e-4a33-9801-eb9c6ee52940",
+  "q": "notebook#8",
+  "alt": "米色毯子上放著橘色筆記本、一支筆、一杯茶和幾片乾葉子"
+ },
+ "night-lamp": {
+  "id": "382ff48f-d886-42ce-b8de-64dec4458826",
+  "q": "night-lamp#2",
+  "alt": "昏黃的床頭燈照著安靜的臥室"
+ },
+ "clouds": {
+  "id": "e980d8ff-54fa-4bd0-bc6a-4597812d1cae",
+  "q": "clouds#6",
+  "alt": "粉紫色的晚霞與層層堆疊的雲"
+ },
+ "sea-calm": {
+  "id": "d1b72836-5b9a-439d-a8cb-abdc6c1a67f0",
+  "q": "sea-calm#1",
+  "alt": "夕陽從雲縫灑下，在平靜海面上鋪出一道金光"
+ },
+ "phone-hand": {
+  "id": "96143fb9-fc9b-435f-8694-c6400fec5b5b",
+  "q": "phone-hand#0",
+  "alt": "咖啡桌旁，一雙手正拿著手機"
+ },
+ "tea-warm": {
+  "id": "e664b3a0-3292-4835-bf8d-059286487694",
+  "q": "tea-warm#13",
+  "alt": "茶壺正往茶杯裡倒茶，旁邊擺著茶具"
+ },
+ "clock": {
+  "id": "d21cb3d9-d95e-40de-a966-72465f36e708",
+  "q": "clock#2",
+  "alt": "老時鐘的錶面特寫，指針停在下午三點附近"
+ },
+ "calendar": {
+  "id": "0fd12f2a-5497-4577-ba8f-e8b0a5d32407",
+  "q": "calendar#12",
+  "alt": "一隻手拿著鉛筆在手帳上寫計畫"
+ },
+ "window-rain": {
+  "id": "4c867021-d435-4ed7-a0b8-e827d0bbfd25",
+  "q": "window-rain#0",
+  "alt": "黃昏時分，窗玻璃上布滿雨滴，外面透著橘色的光"
+ },
+ "keyboard": {
+  "id": "cdee8bfc-1996-4b1f-9bf5-d8fb9839fce7",
+  "q": "keyboard#8",
+  "alt": "窗邊書桌上的一台老打字機和一疊筆記本"
+ },
+ "train": {
+  "id": "8ccf525e-fbdc-4046-b0de-253bc0bd37f1",
+  "q": "train#12",
+  "alt": "夕陽下，一列通勤火車的剪影"
+ },
+ "coins": {
+  "id": "74582c0b-831a-4c30-8f0e-4e491c67f9ff",
+  "q": "coins#1",
+  "alt": "翻倒的玻璃罐裡，銅板散落在地毯上"
+ },
+ "receipt": {
+  "id": "1aad938a-8c00-4389-a914-99beb9ce2a22",
+  "q": "receipt#1",
+  "alt": "木頭吧台上，一杯拿鐵旁插著一疊收據"
+ },
+ "shopping": {
+  "id": "5d227cf1-ae28-489b-bd21-5e0a66698dc4",
+  "q": "shopping#13",
+  "alt": "夜裡亮著燈的商店櫥窗，架上擺滿商品"
+ },
+ "parcel": {
+  "id": "3eb755f9-e6f9-4dc1-a0d7-aaed904ef019",
+  "q": "parcel#11",
+  "alt": "紙箱上用麥克筆手寫著「易碎」（fragile）",
+  "pos": "center 15%"
+ },
+ "documents": {
+  "id": "9346c59b-6d67-42ec-90ca-3a12788250bc",
+  "q": "documents#11",
+  "alt": "一雙手握著筆，正準備在文件上簽名"
+ },
+ "piggy": {
+  "id": "5afa7d01-67c1-4ff1-b638-58d22bfe43d7",
+  "q": "piggy#13",
+  "alt": "一隻手拿著塞滿鈔票的皮夾"
+ },
+ "umbrella": {
+  "id": "9eabc16a-4183-4948-b4a6-1d5feec47bc8",
+  "q": "umbrella#11",
+  "alt": "雨夜的街燈下，一把紅傘"
+ },
+ "car": {
+  "id": "7584aea4-09cc-4a2d-ab97-9ac8ba5e9a45",
+  "q": "car#5",
+  "alt": "一隻手遞出汽車鑰匙"
+ }
+}

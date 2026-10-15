@@ -1,0 +1,24 @@
+[
+  {
+    "date": "2026-10-15",
+    "macrostructure": "Long Document (篇章頁) + Letter (首頁)",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / warm",
+    "vibe": "暖紙、墨色、晨光、手寫的溫度",
+    "enrichment": "photographic plates (CC0/PD via Openverse)",
+    "nav": "N9",
+    "footer": "Ft6",
+    "brief": "高 CP 值人生指南台灣版 · 前五篇"
+  },
+  {
+    "date": "2026-10-15",
+    "macrostructure": "Long Document (篇章頁，要點卡片) + Marquee Hero → 問路 → 目次 (首頁)",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / warm（夜：dark / roman-serif / warm）",
+    "vibe": "和紙、墨、朱印、金茶、枯山水",
+    "enrichment": "互動枯山水 canvas、円相 SVG、青海波、大字水印、CC0/PD 照片",
+    "nav": "N9",
+    "footer": "Ft6",
+    "brief": "首頁問路與 34 篇目錄篩選、要點改卡片、移除「我做到了」"
+  }
+]

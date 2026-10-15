@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "site"],
+      "port": 4321
+    },
+    {
+      "name": "img-sheets",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4399", "--directory", "/private/tmp/claude-501/-Users-daniellin-Desktop-how-to-live-better/051c6c62-3974-46d1-bd3a-a080c1e665c5/scratchpad/img"],
+      "port": 4399
+    }
+  ]
+}
