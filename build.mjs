@@ -35,6 +35,13 @@ const COST = [
   ['時間', '時間', { 少: '一下子', 中: '一些', 多: '很多' }],
   ['毅力', '毅力', { 否: '不太需要', 些: '一點', 是: '長期堅持' }],
 ];
+// 卡片上的小圖示（線條風格，顏色跟著文字）
+const svg = (d, cls = '') => `<svg class="${cls}" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`;
+const ICON = {
+  image: svg('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/>'),
+  link: svg('<path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/>', 'icon-link'),
+  check: svg('<path d="M20 6 9 17l-5-5"/>', 'icon-check'),
+};
 const GAIN = { 大: '大', 中: '中等', 小: '小' };
 const KIND = { 死亡率: '換回壽命', 金錢: '省下金錢', 時間: '省下時間' };
 const WHO = { 嬰幼兒: '嬰幼兒', 孩子: '孩子', 懷孕: '孕婦', 老人: '長輩', 女性: '女性', '35歲': '35 歲以上', '60歲': '60 歲以上' };
@@ -84,7 +91,7 @@ function point(ch, n) {
   // 收起時只看第幾條、標題、摘要；展開才看等級、徽章、內文與來源
   return `<article class="point" id="n${n}" data-grade="${g}" data-disputed="${it.disputed ? 1 : 0}"><details class="point__fold">
   <summary class="point__head"><span class="point__no">第 ${n} 條</span><h3 class="point__title">${esc(it.title)}</h3><span class="point__summary">${esc(it.summary)}</span></summary>
-  <div class="point__meta">${grade}<button type="button" class="point__share" data-share aria-haspopup="dialog">分享圖卡</button></div>
+  <div class="point__meta">${grade}<button type="button" class="point__icon" data-share aria-haspopup="dialog" aria-label="分享圖卡" title="分享圖卡">${ICON.image}</button><button type="button" class="point__icon" data-copy-link aria-label="複製這條的網址" title="複製網址">${ICON.link}${ICON.check}</button></div>
   <ul class="badges" aria-label="付出與收益">${badges}</ul>
   <div class="point__desc">${paras(it.desc)}</div>
   <aside class="point__aside" aria-label="證據與備註">

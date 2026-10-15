@@ -33,6 +33,20 @@
   };
   addEventListener('hashchange', showHash);
   showHash();
+  // 複製這一條的網址；複製不了就跳出來讓人自己選取
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('[data-copy-link]');
+    if (!btn) return;
+    const url = `${location.origin}${location.pathname}#${btn.closest('.point').id}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      btn.dataset.done = '';
+      btn.title = '已複製網址';
+      setTimeout(() => { delete btn.dataset.done; btn.title = '複製網址'; }, 1600);
+    } catch {
+      prompt('複製這一條的網址', url);
+    }
+  });
   addEventListener('beforeprint', () => document.querySelectorAll('.point details').forEach(d => { d.open = true; }));
 
   // ── 分享圖卡：把一條建議畫成 1080×1080 的 PNG，可複製或下載 ──
