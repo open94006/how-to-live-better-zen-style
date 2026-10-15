@@ -221,21 +221,7 @@ figcaption a { text-decoration-color: var(--color-rule); }
   color: var(--color-accent);
   white-space: nowrap;
 }
-.legend { display: grid; gap: var(--space-sm); margin: 0; padding: 0; list-style: none; }
-.legend li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--space-sm); align-items: baseline; font-size: var(--text-sm); line-height: 1.7; color: var(--color-ink-2); }
-.legend li > :first-child { justify-self: start; }
-
-/* ── 閱讀指引與篩選 ────────────────────────── */
-.guide {
-  display: grid;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-2xl);
-  padding: var(--space-xl) 0;
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-}
-.guide__title { margin-bottom: var(--space-sm); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; letter-spacing: 0.08em; }
-@media (min-width: 900px) { .guide { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3xl); margin-top: var(--space-xl); } }
+/* ── 篩選（首頁用） ────────────────────────── */
 .filters { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-md); }
 .chip {
   min-height: 2.25rem;
@@ -253,8 +239,6 @@ figcaption a { text-decoration-color: var(--color-rule); }
 .chip:hover { border-color: var(--color-ink-2); color: var(--color-ink); }
 .chip:active { transform: translateY(1px); }
 .chip[aria-pressed="true"] { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
-.guide__status { margin: 0 0 var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; }
-.guide__how { margin: 0; font-family: var(--font-display); color: var(--color-ink-2); }
 
 /* ── 目錄與正文 ────────────────────────────── */
 .reader { display: grid; gap: var(--space-xl); }
@@ -298,7 +282,23 @@ figcaption a { text-decoration-color: var(--color-rule); }
   height: 2px;
   background: var(--color-gold);
 }
-.point__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-sm); margin-bottom: var(--space-sm); }
+.point__head { display: grid; gap: var(--space-2xs); padding-right: 1.5rem; list-style: none; cursor: pointer; }
+.point__head::-webkit-details-marker { display: none; }
+.point__head::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-lg) + 0.4em);
+  right: clamp(1.1rem, 0.6rem + 2vw, 2rem);
+  width: 0.55em;
+  height: 0.55em;
+  border-right: 1.5px solid var(--color-muted);
+  border-bottom: 1.5px solid var(--color-muted);
+  transform: rotate(45deg);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.point__fold[open] .point__head::after { transform: translateY(0.3em) rotate(-135deg); }
+.point__head:hover .point__title { color: var(--color-accent); }
+.point__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-sm); margin: var(--space-md) 0; }
 .point__share {
   margin-left: auto;
   min-height: 2rem;
@@ -318,7 +318,7 @@ figcaption a { text-decoration-color: var(--color-rule); }
 .point__share:active { transform: translateY(1px); }
 .point__no { font-family: var(--font-display); font-size: var(--text-sm); letter-spacing: 0.15em; color: var(--color-accent); font-variant-numeric: tabular-nums; }
 .point__title { font-size: var(--text-lg); font-weight: 600; line-height: 1.55; letter-spacing: 0.05em; }
-.point__summary { margin: var(--space-xs) 0 var(--space-md); font-family: var(--font-display); font-size: var(--text-md); line-height: 1.9; color: var(--color-ink-2); }
+.point__summary { margin-bottom: var(--space-xs); font-family: var(--font-display); font-size: var(--text-md); line-height: 1.9; color: var(--color-ink-2); }
 
 .badges { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: 0 0 var(--space-lg); padding: 0; list-style: none; }
 .badge {
@@ -398,7 +398,6 @@ figcaption a { text-decoration-color: var(--color-rule); }
 .src__links a { color: var(--color-accent); text-decoration-color: currentColor; }
 .sources__tw-head { margin: var(--space-md) 0 var(--space-xs); font-size: var(--text-xs); color: var(--color-muted); }
 .sources--tw { list-style: "— "; padding-left: 1.4em; color: var(--color-ink-2); }
-.empty { padding: var(--space-2xl) 0; font-family: var(--font-display); font-size: var(--text-md); color: var(--color-muted); }
 
 /* ── 翻頁 ──────────────────────────────────── */
 .turn {
@@ -476,6 +475,6 @@ figcaption a { text-decoration-color: var(--color-rule); }
 }
 
 @media print {
-  body::before, .progress, .guide, .toc, .turn, .point__share, .theme-toggle { display: none !important; }
+  body::before, .progress, .toc, .turn, .point__share, .theme-toggle { display: none !important; }
   .point { break-inside: avoid; box-shadow: none; }
 }

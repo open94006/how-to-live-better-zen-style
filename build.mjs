@@ -25,9 +25,9 @@ const toc = catalog.chapters.map(c => ({ ...c, ch: chapters.find(x => x.no === c
 const ver = createHash('sha1').update(['tokens.css', 'style.css', 'app.js', 'home.css', 'home.js'].map(f => fs.readFileSync(`site/assets/${f}`, 'utf8')).join('')).digest('hex').slice(0, 8);
 
 const GRADE = {
-  A: { label: '證據紮實', text: '多半來自隨機分組試驗、大型統合分析，或可以逐字核對的官方規定。' },
-  B: { label: '證據尚可', text: '多為觀察研究或單一研究，方向可信，但數字可能有偏差。' },
-  C: { label: '經驗共識', text: '來自安全指南、事故統計或專家共識，沒有研究算過照做能少多少傷害。' },
+  A: { label: '證據紮實' },
+  B: { label: '證據尚可' },
+  C: { label: '經驗共識' },
 };
 // 付出與收益的徽章：花費一律中性呈現，不特別強調「免費」
 const COST = [
@@ -81,10 +81,10 @@ function point(ch, n) {
     t.收益 ? `<li class="badge badge--gain"><span>收益</span>${KIND[t.口徑] ?? ''}・${GAIN[t.收益]}</li>` : '',
     t.人群 ? `<li class="badge badge--who"><span>特別適合</span>${esc(who(t.人群))}</li>` : '',
   ].join('');
-  return `<article class="point" id="n${n}" data-grade="${g}" data-disputed="${it.disputed ? 1 : 0}">
-  <header class="point__head"><span class="point__no">第 ${n} 條</span>${grade}<button type="button" class="point__share" data-share aria-haspopup="dialog">分享圖卡</button></header>
-  <h3 class="point__title">${esc(it.title)}</h3>
-  <p class="point__summary">${esc(it.summary)}</p>
+  // 收起時只看第幾條、標題、摘要；展開才看等級、徽章、內文與來源
+  return `<article class="point" id="n${n}" data-grade="${g}" data-disputed="${it.disputed ? 1 : 0}"><details class="point__fold">
+  <summary class="point__head"><span class="point__no">第 ${n} 條</span><h3 class="point__title">${esc(it.title)}</h3><span class="point__summary">${esc(it.summary)}</span></summary>
+  <div class="point__meta">${grade}<button type="button" class="point__share" data-share aria-haspopup="dialog">分享圖卡</button></div>
   <ul class="badges" aria-label="付出與收益">${badges}</ul>
   <div class="point__desc">${paras(it.desc)}</div>
   <aside class="point__aside" aria-label="證據與備註">
@@ -98,7 +98,7 @@ function point(ch, n) {
       ${it.tw?.length ? `<p class="sources__tw-head">台灣在地補充（改寫時查證，請以主管機關最新公告為準）</p><ul class="sources sources--tw">${it.tw.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
     </div>
   </details>
-</article>`;
+</details></article>`;
 }
 
 // 青海波紋樣：每格五組同心圓，下排蓋住上排
@@ -150,7 +150,6 @@ function chapterPage(ch, i) {
   assert.deepEqual([...grouped].sort((a, b) => a - b), [...items].sort((a, b) => a - b), `第 ${ch.no} 篇分組與條目不一致`);
   assert.deepEqual(items.sort((a, b) => a - b), Object.keys(ch.src.items).map(Number).sort((a, b) => a - b), `第 ${ch.no} 篇條目數與原書不同`);
   const prev = chapters[i - 1], next = chapters[i + 1];
-  const count = g => items.filter(n => ch.src.items[n].grade === g).length;
   const body = `<body class="page-chapter">
 ${defs}
 <div class="progress" aria-hidden="true"><span></span></div>
@@ -166,24 +165,6 @@ ${masthead(`<a class="masthead__link" href="index.html#chapters">所有篇章</a
   ${figure(ch.hero, 'opening__plate', { eager: true, sizes: '(min-width: 900px) 40vw, 100vw' })}
 </section>
 
-<section class="guide" aria-label="閱讀指引">
-  <div class="guide__legend">
-    <p class="guide__title">這篇有 ${items.length} 條建議</p>
-    <ul class="legend">
-      ${['A', 'B', 'C'].map(g => `<li><span class="grade grade--${g.toLowerCase()}"><b>${g}</b>${GRADE[g].label}</span><span>${count(g)} 條。${GRADE[g].text}</span></li>`).join('')}
-    </ul>
-  </div>
-  <div class="guide__tools">
-    <p class="guide__title">想先看哪一類？</p>
-    <div class="filters" role="group" aria-label="篩選條目">
-      ${[['all', '全部'], ['A', 'A 證據紮實'], ['B', 'B 證據尚可'], ['C', 'C 經驗共識'], ['disputed', '有爭議']]
-        .map(([v, l], k) => `<button type="button" class="chip" data-filter="${v}" aria-pressed="${k === 0}">${l}</button>`).join('')}
-    </div>
-    <p class="guide__status" aria-live="polite"><span data-shown>${items.length}</span> 條顯示中</p>
-    <p class="guide__how">每張卡片是一件事：先讀摘要，看看要付出多少、能換回什麼；想查證時，再展開最下面的「來源」。</p>
-  </div>
-</section>
-
 <div class="reader">
   <nav class="toc" aria-label="本篇目錄">
     <p class="toc__title">本篇目錄</p>
@@ -197,7 +178,6 @@ ${masthead(`<a class="masthead__link" href="index.html#chapters">所有篇章</a
       ${g.image ? figure(g.image, 'plate') : ''}
       ${g.items.map(n => point(ch, n)).join('\n')}
     </section>`).join('\n')}
-    <p class="empty" hidden>這個篩選條件下沒有條目。</p>
   </div>
 </div>
 

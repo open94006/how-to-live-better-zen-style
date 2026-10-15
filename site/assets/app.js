@@ -1,4 +1,4 @@
-// 全站：深淺色切換（記在這台裝置）。篇章頁：閱讀進度、依證據篩選、分享圖卡、目錄標示目前段落
+// 全站：深淺色切換（記在這台裝置）。篇章頁：閱讀進度、展開條目、分享圖卡、目錄標示目前段落
 (() => {
   // 深淺色：預設跟系統，按了之後記住；按鈕顯示「切換後」的那一個字
   const root = document.documentElement;
@@ -15,7 +15,6 @@
   });
 
   if (!document.querySelector('.page-chapter')) return;
-  const points = [...document.querySelectorAll('.point')];
   const groups = [...document.querySelectorAll('.group')];
 
   // 頂端閱讀進度
@@ -27,28 +26,14 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // 篩選
-  const shownOut = document.querySelector('[data-shown]');
-  const empty = document.querySelector('.empty');
-  const chips = [...document.querySelectorAll('.chip[data-filter]')];
-  const match = (el, f) => f === 'all' || el.dataset.grade === f || (f === 'disputed' && el.dataset.disputed === '1');
-  function applyFilter(f) {
-    let shown = 0;
-    points.forEach(el => { const ok = match(el, f); el.hidden = !ok; shown += ok; });
-    groups.forEach(g => { g.hidden = !g.querySelector('.point:not([hidden])'); });
-    chips.forEach(c => c.setAttribute('aria-pressed', c.dataset.filter === f));
-    shownOut.textContent = shown;
-    empty.hidden = shown > 0;
-  }
-  chips.forEach(chip => chip.addEventListener('click', () => applyFilter(chip.dataset.filter)));
-
-  // 網址帶 #n12 時，若那條被篩掉就先清除篩選
+  // 網址帶 #n12 時，展開那一條
   const showHash = () => {
     const el = location.hash.startsWith('#n') && document.getElementById(location.hash.slice(1));
-    if (el?.hidden) { applyFilter('all'); el.scrollIntoView({ block: 'start' }); }
+    if (el) el.querySelector('.point__fold').open = true;
   };
   addEventListener('hashchange', showHash);
-  addEventListener('beforeprint', () => document.querySelectorAll('.point__src').forEach(d => { d.open = true; }));
+  showHash();
+  addEventListener('beforeprint', () => document.querySelectorAll('.point details').forEach(d => { d.open = true; }));
 
   // ── 分享圖卡：把一條建議畫成 1080×1080 的 PNG，可複製或下載 ──
   const dialog = document.querySelector('.share');
